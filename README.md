@@ -1,2 +1,6 @@
 # data analytics projects
 there is my repository full of with data analytics projects. Enjoy it :)
+
+
+Projects:
+1. Layoffs (raw data set, data claening, data exploratory)
