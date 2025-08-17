@@ -3,4 +3,4 @@ there is my repository full of with data analytics projects. Enjoy it :)
 
 
 Projects:
-1. Layoffs (raw data set, data claening, data exploratory)
+1. Layoffs (raw data set, data claening, data exploratory) - using SQl, 08.2025
