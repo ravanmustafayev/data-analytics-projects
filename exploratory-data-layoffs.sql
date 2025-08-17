@@ -1,10 +1,12 @@
--- EDA
+-- EDA = Exploratory Data Analysis
 
--- Here we are jsut going to explore the data and find trends or patterns or anything interesting like outliers
-
--- normally when you start the EDA process you have some idea of what you're looking for
-
+-- Here we are just going to explore the data and find trends or patterns or anything interesting like outliers
+-- normally when we start the EDA process you have some idea of what you're looking for
 -- with this info we are just going to look around and see what we find!
+
+-- this project is built on previous project named "layoffs data cleaning". 
+-- I worked with data set that i vahe cleaned in this layoffs project. Look at other files please. 
+
 
 SELECT * 
 FROM world_layoffs.layoffs_staging2;
@@ -38,22 +40,6 @@ ORDER BY funds_raised_millions DESC;
 -- BritishVolt looks like an EV company, Quibi! I recognize that company - wow raised like 2 billion dollars and went under - ouch
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- SOMEWHAT TOUGHER AND MOSTLY USING GROUP BY--------------------------------------------------------------------------------------------------
-
 -- Companies with the biggest single Layoff
 
 SELECT company, total_laid_off
@@ -85,9 +71,9 @@ FROM world_layoffs.layoffs_staging2
 GROUP BY country
 ORDER BY 2 DESC;
 
-SELECT YEAR(date), SUM(total_laid_off)
+SELECT YEAR(`date`), SUM(total_laid_off)
 FROM world_layoffs.layoffs_staging2
-GROUP BY YEAR(date)
+GROUP BY YEAR(`date`)
 ORDER BY 1 ASC;
 
 
@@ -103,15 +89,10 @@ GROUP BY stage
 ORDER BY 2 DESC;
 
 
-
-
-
-
--- TOUGHER QUERIES------------------------------------------------------------------------------------------------------------------------------------
-
--- Earlier we looked at Companies with the most Layoffs. Now let's look at that per year. It's a little more difficult.
+-- Earlier we looked at Companies with the most Layoffs. Now let's look at that per year.
 -- I want to look at 
 
+-- building CTEs
 WITH Company_Year AS 
 (
   SELECT company, YEAR(date) AS years, SUM(total_laid_off) AS total_laid_off
@@ -137,7 +118,7 @@ FROM layoffs_staging2
 GROUP BY dates
 ORDER BY dates ASC;
 
--- now use it in a CTE so we can query off of it
+-- now use it in a CTE
 WITH DATE_CTE AS 
 (
 SELECT SUBSTRING(date,1,7) as dates, SUM(total_laid_off) AS total_laid_off
