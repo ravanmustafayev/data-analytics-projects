@@ -1,0 +1,65 @@
+US Presidents Project – Data Cleaning Steps
+
+1. Duplicate records removed
+
+Menu: Data > Data Tools > Remove Duplicates
+
+Result: Duplicate entry (Barack Obama) removed.
+
+2. Standardizing case in “President” column
+
+Added helper column → Formula: =PROPER([President])
+
+Example corrections:
+
+john tyler → John Tyler
+
+JAMES MONROE → James Monroe
+
+john adams → John Adams
+
+Note: Could also use =UPPER() or =LOWER() depending on preference.
+
+3. Cleaning “Party” column
+
+Applied Filter to check unique categories.
+
+Unified inconsistent labels (e.g., Republican vs. Republicans, Democratic vs. Demorcatic).
+
+Important: Consistent party names enable proper grouping in dashboards.
+
+4. Removing extra spaces in “Vice” column
+
+Added helper column → Formula: =TRIM([Vice])
+
+This removed unnecessary spaces around names.
+
+5. Fixing “Salary” column
+
+Removed dollar signs ($) from salary values.
+
+Changed column format from Currency → Number.
+
+Purpose: Prevents errors when loading into SQL.
+
+6. Unifying date formats
+
+Selected all date columns → Applied format Short Date (Home > Number > Short Date).
+
+Adjusted inconsistent entries in the last two rows.
+
+Optionally: Could use Long Date if preferred.
+
+7. Breaking formula dependency (Vice-Fixed & President-Fixed)
+
+Columns contained formulas (based on raw data).
+
+To prevent future #REF! errors when deleting source columns:
+
+Used Copy > Paste Values for fixed columns.
+
+Deleted unnecessary raw data columns.
+
+8. Removed unnecessary columns
+
+Dropped irrelevant fields to keep dataset clean and concise.
