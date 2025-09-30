@@ -1,5 +1,12 @@
 US Presidents Project – Data Cleaning Steps
 
+by Ravan Mustafayev, 09.2025
+
+raw and cleaned dataset are uploaded in my Github
+
+https://github.com/ravanmustafayev/data-analytics-projects
+
+
 1. Duplicate records removed
 
 Menu: Data > Data Tools > Remove Duplicates
@@ -61,5 +68,6 @@ Used Copy > Paste Values for fixed columns.
 Deleted unnecessary raw data columns.
 
 8. Removed unnecessary columns
+
 
 Dropped irrelevant fields to keep dataset clean and concise.
